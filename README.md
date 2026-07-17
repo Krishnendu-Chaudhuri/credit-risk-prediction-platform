@@ -205,6 +205,3 @@ Training metrics and feature importance available via `GET /metrics` after train
 
 See [`requirements.txt`](requirements.txt) for all Python dependencies (runtime, testing, linting, and notebooks).
 
-## License
-
-MIT (educational use)
