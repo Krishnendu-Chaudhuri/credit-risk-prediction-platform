@@ -25,4 +25,4 @@ matplotlib==3.10.0
 seaborn==0.13.2
 plotly==5.24.1
 fakeredis==2.26.2
-moto[s3]==5.1.4
+moto[s3]==5.2.2
