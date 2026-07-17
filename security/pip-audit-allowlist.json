@@ -1,0 +1,5 @@
+{
+  "ignored_vulnerabilities": [
+    "PYSEC-2026-1845"
+  ]
+}

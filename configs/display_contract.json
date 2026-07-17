@@ -1,0 +1,12 @@
+{
+  "risk_bands": {
+    "Low": {"color": "#2ecc71", "label": "Low", "pd_max": 0.10},
+    "Medium": {"color": "#f39c12", "label": "Medium", "pd_max": 0.20},
+    "High": {"color": "#e74c3c", "label": "High", "pd_max": 0.35},
+    "Very High": {"color": "#8e0000", "label": "Very High", "pd_max": 1.0}
+  },
+  "format": {
+    "pd": "percent",
+    "currency": "USD"
+  }
+}

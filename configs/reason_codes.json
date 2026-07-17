@@ -1,0 +1,11 @@
+[
+  {"code": "INSUFFICIENT_INCOME", "description": "Insufficient income relative to obligation"},
+  {"code": "EXCESSIVE_OBLIGATIONS", "description": "Excessive obligations relative to income"},
+  {"code": "HIGH_DEBT_TO_INCOME", "description": "Debt-to-income ratio is too high"},
+  {"code": "LIMITED_EMPLOYMENT_HISTORY", "description": "Limited employment history"},
+  {"code": "LIMITED_CREDIT_HISTORY", "description": "Limited credit history"},
+  {"code": "POOR_CREDIT_RATING", "description": "Credit rating does not meet standards"},
+  {"code": "PRIOR_DEFAULT", "description": "Prior default on file"},
+  {"code": "HIGH_INTEREST_RATE", "description": "Interest rate indicative of elevated risk"},
+  {"code": "GENERAL_CREDIT_RISK", "description": "General credit risk factors"}
+]
