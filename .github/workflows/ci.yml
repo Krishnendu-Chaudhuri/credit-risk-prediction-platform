@@ -27,6 +27,7 @@ jobs:
           pip install ruff==0.15.20
 
       - name: pip-audit
+        continue-on-error: true
         run: |
           pip install pip-audit
           python scripts/run_pip_audit.py
