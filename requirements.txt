@@ -13,7 +13,7 @@ shap==0.46.0
 redis==5.2.1
 python-dotenv==1.2.2
 PyJWT==2.13.0
-boto3==1.37.38
+boto3==1.43.50
 pytest==9.1.1
 httpx==0.28.1
 pytest-cov==7.1.0
