@@ -28,6 +28,12 @@ jobs:
           pip install pip-audit
           python scripts/run_pip_audit.py
 
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install ruff
+
       - name: Ruff lint
         run: ruff check src app tests scripts
 
@@ -71,3 +77,4 @@ jobs:
 
       - name: ESLint
         run: npm run lint
+
