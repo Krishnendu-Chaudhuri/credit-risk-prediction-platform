@@ -1,0 +1,35 @@
+services:
+  backend:
+    build:
+      context: ..
+      dockerfile: infra/Dockerfile.backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - ../.env
+    volumes:
+      - ../assets/data:/app/assets/data
+      - ../backend/models:/app/backend/models
+    environment:
+      - DATA_CSV_PATH=assets/data/credit_risk_dataset_new.csv
+      - MACRO_XLSX_PATH=assets/data/US_Macro_Economic_Stress_Test_Data.xlsx
+      - MODEL_DIR=backend/models
+      - ENVIRONMENT=${ENVIRONMENT:-production}
+      - API_KEY=${API_KEY:?API_KEY must be set}
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  frontend:
+    build:
+      context: ..
+      dockerfile: infra/Dockerfile.frontend
+    ports:
+      - "5173:8080"
+    depends_on:
+      - backend

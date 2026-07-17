@@ -1,0 +1,80 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+
+.venv/
+venv/
+env/
+
+# Environment
+.env
+.env.example
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Testing / linting
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage/
+htmlcov/
+
+# Caches
+.cache/
+
+# Logs
+*.log
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Build
+build/
+dist/
+
+# Model artifacts
+artifacts/
+backend/models/*
+!backend/models/.gitkeep
+!backend/models/registry/
+backend/models/registry/*
+!backend/models/registry/.gitkeep
+*.joblib
+*.h5
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.pickle
+*.pkl
+
+# Generated outputs
+outputs/
+checkpoints/
+models/
+runs/
+mlruns/
+
+# SQLite / audit DB
+*.sqlite
+*.db
+*.db-wal
+*.db-shm
+app/api/data/*.db
+
+# Generated datasets
+assets/data/*.xlsx
+US_Macro_Economic_Stress_Test_Data.xlsx
+
+# Node / frontend
+node_modules/
+frontend/dist/
+frontend/.env.local

@@ -1,0 +1,9 @@
+{
+  "PERSONAL": 1.0,
+  "EDUCATION": 0.95,
+  "MEDICAL": 1.05,
+  "VENTURE": 1.15,
+  "HOMEIMPROVEMENT": 0.90,
+  "DEBTCONSOLIDATION": 1.10,
+  "default": 1.0
+}

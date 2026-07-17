@@ -1,0 +1,14 @@
+.git
+**/__pycache__
+**/.mypy_cache
+**/.ruff_cache
+**/.pytest_cache
+backend/models/registry
+app/api/data/audit.db
+app/api/data/*.db
+frontend/node_modules
+frontend/dist
+*.pyc
+.env
+.venv
+.coverage
