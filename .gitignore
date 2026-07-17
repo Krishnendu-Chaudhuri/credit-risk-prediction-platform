@@ -57,9 +57,7 @@ backend/models/registry/*
 *.pkl
 
 # Generated outputs
-outputs/
 checkpoints/
-models/
 runs/
 mlruns/
 
