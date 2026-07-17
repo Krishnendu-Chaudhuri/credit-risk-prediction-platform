@@ -23,7 +23,8 @@ from app.api.settings import load_env
 
 load_env()
 
-from src.config.constants import CREDIT_CSV_PATH, MAX_BATCH_LOANS
+from src.config.constants import MAX_BATCH_LOANS
+from src.config.paths import CREDIT_CSV_FILE as CREDIT_CSV_PATH
 from src.config.paths import MODEL_DIR as DEFAULT_MODEL_DIR
 from src.config.paths import require_file
 from src.features.encoding_monitor import get_unknown_category_count

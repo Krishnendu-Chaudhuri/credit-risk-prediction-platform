@@ -9,7 +9,7 @@ from typing import Literal
 import numpy as np
 import pandas as pd
 
-from src.config.constants import CREDIT_CSV_PATH
+from src.config.paths import CREDIT_CSV_FILE as CREDIT_CSV_PATH
 from src.config.paths import MODEL_DIR as DEFAULT_MODEL_DIR
 from src.data.integrity import load_data_manifest, verify_manifest
 from src.features.encoding_monitor import check_unknown_categories
