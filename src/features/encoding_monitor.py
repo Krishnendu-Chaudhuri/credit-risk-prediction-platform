@@ -5,8 +5,8 @@ from __future__ import annotations
 from threading import Lock
 
 import numpy as np
-
 from app.api.logging_config import get_logger
+
 from src.features.engineering import CATEGORICAL_FEATURES
 
 logger = get_logger(__name__)

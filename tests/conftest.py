@@ -40,7 +40,6 @@ def client() -> TestClient:
 @pytest.fixture
 def redis_client(monkeypatch: pytest.MonkeyPatch):
     import fakeredis
-
     from app.api import redis_store
 
     fake = fakeredis.FakeRedis(decode_responses=True)

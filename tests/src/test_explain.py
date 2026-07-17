@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import numpy as np
 from sklearn.linear_model import LogisticRegression
-
 from src.utils.explain import explain_lr, explain_prediction
 
 

@@ -6,7 +6,6 @@ from pathlib import Path
 
 import pytest
 from moto import mock_aws
-
 from src.models.storage import LocalModelStorage, S3ModelStorage, get_model_storage, save_artifact_bundle
 
 

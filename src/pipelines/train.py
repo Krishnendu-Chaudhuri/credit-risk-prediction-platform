@@ -17,10 +17,12 @@ from xgboost import XGBClassifier
 from src.config.paths import (
     CREDIT_CSV_FILE,
     MACRO_XLSX_FILE,
-    MODEL_DIR as DEFAULT_MODEL_DIR,
     OUTPUT_DIR,
     ensure_directory,
     require_file,
+)
+from src.config.paths import (
+    MODEL_DIR as DEFAULT_MODEL_DIR,
 )
 from src.data.integrity import compute_manifest, save_data_manifest, verify_manifest
 from src.features.engineering import build_feature_matrix, fit_imputation_stats
@@ -111,6 +113,7 @@ def train_models(config: TrainConfig | None = None, csv_path: str | None = None)
 
     cv_metrics: dict[str, Any] = {}
     if len(X_train) >= 50:
+
         def _cv_fold(train_idx: np.ndarray, test_idx: np.ndarray) -> dict[str, float]:
             fold_pre = fit_preprocessor(X_train.iloc[train_idx])
             X_tr_f = fold_pre.transform(X_train.iloc[train_idx])
@@ -194,9 +197,7 @@ def train_models(config: TrainConfig | None = None, csv_path: str | None = None)
         "cv_metrics": cv_metrics or None,
         "oot_metrics": oot_metrics,
         "macro_regression": (
-            {"spec": macro_reg.spec, "r2": macro_reg.r2, "coefficients": macro_reg.coefficients}
-            if macro_reg
-            else None
+            {"spec": macro_reg.spec, "r2": macro_reg.r2, "coefficients": macro_reg.coefficients} if macro_reg else None
         ),
     }
 

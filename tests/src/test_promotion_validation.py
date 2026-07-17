@@ -5,7 +5,6 @@ from __future__ import annotations
 from pathlib import Path
 
 import pytest
-
 from src.models.promotion import PromotionBlockedError, validate_promotion
 from src.models.registry import ModelStatus, get_current_version, promote_version, save_version_artifacts, version_dir
 from src.utils import save_json
@@ -40,7 +39,9 @@ def test_promote_allowed_when_challenger_beats_champion(tmp_path: Path) -> None:
     challenger_id = "20250102T120000Z"
     _save_version(model_dir, champion_id, roc_auc=0.70, ks=0.30)
     _save_version(model_dir, challenger_id, roc_auc=0.75, ks=0.35)
-    save_json(version_dir(champion_id, model_dir) / "version.json", {"version_id": champion_id, "status": ModelStatus.current})
+    save_json(
+        version_dir(champion_id, model_dir) / "version.json", {"version_id": champion_id, "status": ModelStatus.current}
+    )
     save_json(model_dir / "current.json", {"version_id": champion_id, "status": ModelStatus.current})
 
     promote_version(challenger_id, model_dir)
@@ -53,7 +54,9 @@ def test_promote_blocked_when_challenger_underperforms(tmp_path: Path) -> None:
     challenger_id = "20250102T120000Z"
     _save_version(model_dir, champion_id, roc_auc=0.80, ks=0.40)
     _save_version(model_dir, challenger_id, roc_auc=0.70, ks=0.20)
-    save_json(version_dir(champion_id, model_dir) / "version.json", {"version_id": champion_id, "status": ModelStatus.current})
+    save_json(
+        version_dir(champion_id, model_dir) / "version.json", {"version_id": champion_id, "status": ModelStatus.current}
+    )
     save_json(model_dir / "current.json", {"version_id": champion_id, "status": ModelStatus.current})
     champion_dir = version_dir(champion_id, model_dir)
     challenger_dir = version_dir(challenger_id, model_dir)
@@ -71,7 +74,9 @@ def test_promote_force_overrides_validation(tmp_path: Path) -> None:
     challenger_id = "20250102T120000Z"
     _save_version(model_dir, champion_id, roc_auc=0.80, ks=0.40)
     _save_version(model_dir, challenger_id, roc_auc=0.50, ks=0.10)
-    save_json(version_dir(champion_id, model_dir) / "version.json", {"version_id": champion_id, "status": ModelStatus.current})
+    save_json(
+        version_dir(champion_id, model_dir) / "version.json", {"version_id": champion_id, "status": ModelStatus.current}
+    )
     save_json(model_dir / "current.json", {"version_id": champion_id, "status": ModelStatus.current})
 
     promote_version(challenger_id, model_dir, force=True)

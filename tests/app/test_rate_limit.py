@@ -3,10 +3,9 @@
 from __future__ import annotations
 
 import pytest
+from app.api.rate_limit import clear_rate_limits, enforce_rate_limit
 from fastapi import HTTPException
 from starlette.requests import Request
-
-from app.api.rate_limit import clear_rate_limits, enforce_rate_limit
 
 
 def _fake_request(api_key: str = "burst-key") -> Request:

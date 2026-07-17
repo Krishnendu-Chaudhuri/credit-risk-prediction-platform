@@ -5,8 +5,8 @@ from __future__ import annotations
 import os
 
 from dotenv import load_dotenv
-
 from src.config.paths import PROJECT_ROOT
+
 _ENV_LOADED = False
 _DEV_VALUES = frozenset({"development", "dev", "local"})
 

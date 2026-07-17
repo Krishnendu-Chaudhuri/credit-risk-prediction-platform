@@ -5,7 +5,6 @@ from __future__ import annotations
 import time
 
 import pytest
-
 from app.api.main import PredictRequest
 from src.config.constants import MAX_BATCH_LOANS
 from src.models.schemas import LoanInput

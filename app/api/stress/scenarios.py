@@ -3,9 +3,9 @@
 from __future__ import annotations
 
 import numpy as np
+from src.models.schemas import StressScenario
 
 from app.api.stress.config_loader import load_json_config
-from src.models.schemas import StressScenario
 
 DEFAULT_SEGMENT_MULTIPLIERS = {"default": 1.0}
 

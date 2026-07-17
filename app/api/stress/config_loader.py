@@ -4,9 +4,10 @@ from __future__ import annotations
 
 from typing import Any
 
-from app.api.logging_config import get_logger
 from src.config.loader import load_json_config as _load_config
 from src.config.paths import CONFIGS_DIR
+
+from app.api.logging_config import get_logger
 
 logger = get_logger(__name__)
 

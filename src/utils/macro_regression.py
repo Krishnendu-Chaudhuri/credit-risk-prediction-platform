@@ -37,10 +37,9 @@ def fit_macro_multiplier_regression(
     )
 
 
-def predict_multiplier(result: MacroRegressionResult, macro_values: dict[str, float], base_values: dict[str, float]) -> float:
-    delta = sum(
-        result.coefficients.get(k, 0) * (macro_values[k] - base_values[k])
-        for k in macro_values
-    )
+def predict_multiplier(
+    result: MacroRegressionResult, macro_values: dict[str, float], base_values: dict[str, float]
+) -> float:
+    delta = sum(result.coefficients.get(k, 0) * (macro_values[k] - base_values[k]) for k in macro_values)
     predicted = result.intercept + delta
     return float(np.clip(1 + predicted, 0.5, 2.0))

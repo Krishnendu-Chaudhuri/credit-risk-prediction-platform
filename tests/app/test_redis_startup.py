@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import pytest
-
 from app.api.worker_config import get_worker_count, validate_redis_for_workers
 
 

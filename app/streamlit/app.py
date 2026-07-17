@@ -16,10 +16,10 @@ if str(ROOT) not in sys.path:
 
 import pandas as pd
 import requests
+from src.utils.display import band_style, format_currency, format_pd
 
 import streamlit as st
 from app.api.settings import get_api_key, load_env
-from src.utils.display import band_style, format_currency, format_pd
 
 logger = logging.getLogger(__name__)
 
@@ -89,8 +89,7 @@ def _api_get(path: str):
     resp = session.get(url, headers=_api_headers(api_key), timeout=30)
     if resp.status_code == 401:
         raise RuntimeError(
-            "401 Unauthorized — verify API_KEY in .env matches the backend "
-            f"(current key length: {len(api_key)})."
+            f"401 Unauthorized — verify API_KEY in .env matches the backend (current key length: {len(api_key)})."
         )
     resp.raise_for_status()
     return resp.json()

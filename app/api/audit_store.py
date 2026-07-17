@@ -8,8 +8,6 @@ import uuid
 from datetime import UTC, datetime
 from typing import Any
 
-from pathlib import Path
-
 from src.config.paths import PROJECT_ROOT
 from src.utils import get_env_path
 

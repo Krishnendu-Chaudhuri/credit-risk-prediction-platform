@@ -6,7 +6,6 @@ from typing import Any
 
 import numpy as np
 import pandas as pd
-
 from app.api.logging_config import get_logger
 
 logger = get_logger(__name__)
@@ -95,9 +94,11 @@ def _age_bucket(age: float) -> str:
 
 
 def _compute_dti_series(data: pd.DataFrame) -> pd.Series:
-    return data["loan_percent_income"].fillna(
-        data["loan_amnt"] / data["person_income"].replace(0, np.nan)
-    ).clip(lower=0, upper=1)
+    return (
+        data["loan_percent_income"]
+        .fillna(data["loan_amnt"] / data["person_income"].replace(0, np.nan))
+        .clip(lower=0, upper=1)
+    )
 
 
 def fit_imputation_stats(raw_train: pd.DataFrame) -> dict[str, Any]:

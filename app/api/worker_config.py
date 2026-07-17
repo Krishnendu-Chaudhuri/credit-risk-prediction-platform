@@ -49,6 +49,5 @@ def validate_redis_for_workers() -> None:
         logger.warning("REDIS_URL is set but Redis is unreachable; using in-memory single-worker fallback")
     else:
         logger.warning(
-            "Redis is not connected; using in-memory single-worker fallback "
-            "(acceptable for UVICORN_WORKERS=1 only)"
+            "Redis is not connected; using in-memory single-worker fallback (acceptable for UVICORN_WORKERS=1 only)"
         )

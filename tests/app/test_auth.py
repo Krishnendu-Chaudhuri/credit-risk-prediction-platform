@@ -5,9 +5,8 @@ from __future__ import annotations
 import os
 
 import pytest
-from fastapi.testclient import TestClient
-
 from app.api import auth
+from fastapi.testclient import TestClient
 
 
 def test_validate_auth_config_raises_without_key_in_production(monkeypatch: pytest.MonkeyPatch) -> None:

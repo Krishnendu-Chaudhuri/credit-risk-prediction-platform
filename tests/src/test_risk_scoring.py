@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import pytest
-
 from src.models.risk_scoring import (
     compute_ecl,
     compute_expected_loss,

@@ -7,9 +7,10 @@ import uuid
 from dataclasses import dataclass
 from threading import Lock
 
-from app.api import redis_store
 from src.models.schemas import TrainConfig, TrainJobStatus, TrainResponse
 from src.pipelines.train import train_models
+
+from app.api import redis_store
 
 _lock = Lock()
 _jobs: dict[str, JobRecord] = {}

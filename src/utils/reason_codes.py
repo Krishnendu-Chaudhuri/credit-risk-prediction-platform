@@ -30,7 +30,9 @@ def _load_reason_codes() -> list[dict[str, str]]:
         data: list[dict[str, str]] = load_json_config("reason_codes.json")  # type: ignore[assignment]
         _REASON_CODES = data
     except FileNotFoundError:
-        _REASON_CODES = [{"code": code, "description": code.replace("_", " ").title()} for code in FEATURE_TO_CODE.values()]
+        _REASON_CODES = [
+            {"code": code, "description": code.replace("_", " ").title()} for code in FEATURE_TO_CODE.values()
+        ]
     return _REASON_CODES
 
 

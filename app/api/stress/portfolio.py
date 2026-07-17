@@ -3,9 +3,6 @@
 from __future__ import annotations
 
 import numpy as np
-
-from app.api.stress.config_loader import load_json_config
-from app.api.stress.scenarios import apply_pd_shock
 from src.config.constants import MAX_BATCH_LOANS
 from src.data.credit_loader import sample_portfolio
 from src.data.macro_loader import load_macro_scenarios
@@ -18,6 +15,9 @@ from src.models.schemas import (
     StressTestResponse,
 )
 from src.pipelines.predict import predict_pd
+
+from app.api.stress.config_loader import load_json_config
+from app.api.stress.scenarios import apply_pd_shock
 
 # TODO(business-input): confirm scenario probability weights with risk committee.
 DEFAULT_SCENARIO_WEIGHTS = {"Normal": 0.6, "Boom": 0.15, "Recession": 0.25}
@@ -111,10 +111,9 @@ def run_portfolio_stress_test(request: StressTestRequest) -> StressTestResponse:
             )
         )
 
-    weighted_ecl = sum(
-        r.total_ecl * scenario_weights.get(r.scenario, 0.0)
-        for r in results
-    ) / max(sum(scenario_weights.get(r.scenario, 0.0) for r in results), 1e-9)
+    weighted_ecl = sum(r.total_ecl * scenario_weights.get(r.scenario, 0.0) for r in results) / max(
+        sum(scenario_weights.get(r.scenario, 0.0) for r in results), 1e-9
+    )
 
     comparison = [
         ScenarioComparison(
@@ -124,7 +123,9 @@ def run_portfolio_stress_test(request: StressTestRequest) -> StressTestResponse:
             delta_ecl_vs_normal=(
                 (r.total_ecl - normal_ecl)
                 if normal_ecl is not None and r.scenario != "Normal"
-                else 0.0 if r.scenario == "Normal" else None
+                else 0.0
+                if r.scenario == "Normal"
+                else None
             ),
         )
         for r in results

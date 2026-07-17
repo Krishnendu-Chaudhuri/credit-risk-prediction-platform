@@ -6,7 +6,8 @@ from pathlib import Path
 
 import pandas as pd
 
-from src.config.paths import CREDIT_CSV_FILE, MODEL_DIR as DEFAULT_MODEL_DIR, require_file
+from src.config.paths import CREDIT_CSV_FILE, require_file
+from src.config.paths import MODEL_DIR as DEFAULT_MODEL_DIR
 from src.features.engineering import clean_raw_data, engineer_features
 from src.utils import get_env_path, load_json
 

@@ -5,7 +5,6 @@ from __future__ import annotations
 from pathlib import Path
 
 import pytest
-
 from app.api.stress.config_loader import load_json_config
 from app.api.stress.portfolio import DEFAULT_SCENARIO_WEIGHTS, _load_scenario_weights
 from app.api.stress.scenarios import (

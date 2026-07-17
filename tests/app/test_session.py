@@ -3,9 +3,8 @@
 from __future__ import annotations
 
 import pytest
-from fastapi.testclient import TestClient
-
 from app.api.session import SESSION_COOKIE_NAME, create_session_token, verify_session_token
+from fastapi.testclient import TestClient
 
 
 def test_create_and_verify_session_token() -> None:

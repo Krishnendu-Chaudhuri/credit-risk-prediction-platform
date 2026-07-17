@@ -6,7 +6,6 @@ import time
 
 import jwt
 import pytest
-
 from app.api.oauth2 import create_access_token, verify_access_token
 
 JWT_ISSUER = "credit-risk-pd-engine"
@@ -32,7 +31,13 @@ def test_verify_rejects_malformed_token() -> None:
 
 def test_verify_rejects_wrong_signature() -> None:
     bad = jwt.encode(
-        {"sub": "user-123", "iat": int(time.time()), "exp": int(time.time()) + 3600, "iss": JWT_ISSUER, "aud": JWT_AUDIENCE},
+        {
+            "sub": "user-123",
+            "iat": int(time.time()),
+            "exp": int(time.time()) + 3600,
+            "iss": JWT_ISSUER,
+            "aud": JWT_AUDIENCE,
+        },
         "wrong-secret",
         algorithm="HS256",
     )

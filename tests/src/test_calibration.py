@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import numpy as np
-
 from src.models.calibration import apply_calibrator, fit_calibrator
 
 
